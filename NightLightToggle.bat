@@ -9,4 +9,4 @@ powershell -command "$wshell = New-Object -ComObject wscript.shell; $wshell.Send
 REM If waiting is necessary, simply uncomment the line below (remove 'REM').
 REM timeout /t 1 /nobreak >nul
 
-powershell -command "Get-Process | Where-Object { $_.MainWindowTitle -like 'Settings' } | ForEach-Object { $_.CloseMainWindow() }"
+powershell -command "Get-Process SystemSettings -ErrorAction SilentlyContinue | Stop-Process -Force"
